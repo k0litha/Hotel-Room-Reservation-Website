@@ -5,7 +5,12 @@
       <map>
         <entry key="file://$PROJECT_DIR$/src/main/webapp/HTML/home.html" value="file://$PROJECT_DIR$/src/main/webapp/HTML" />
         <entry key="file://$PROJECT_DIR$/src/main/webapp/HTML/home.jsp" value="file://$PROJECT_DIR$/src/main/webapp/HTML" />
+        <entry key="file://$PROJECT_DIR$/src/main/webapp/admin/roomslist.jsp" value="file://$PROJECT_DIR$/src/main/webapp/admin" />
+        <entry key="file://$PROJECT_DIR$/src/main/webapp/admin/sidebar_navbar.jsp" value="file://$PROJECT_DIR$/src/main/webapp/admin" />
         <entry key="file://$PROJECT_DIR$/src/main/webapp/content/concerige.html" value="file://$PROJECT_DIR$/src/main/webapp/content" />
+        <entry key="file://$PROJECT_DIR$/src/main/webapp/dining.jsp" value="file://$PROJECT_DIR$/src/main/webapp" />
+        <entry key="file://$PROJECT_DIR$/src/main/webapp/gallery.jsp" value="file://$PROJECT_DIR$/src/main/webapp" />
+        <entry key="file://$PROJECT_DIR$/src/main/webapp/header.jsp" value="file://$PROJECT_DIR$/src/main/webapp" />
         <entry key="file://$PROJECT_DIR$/src/main/webapp/home.html" value="file://$PROJECT_DIR$/src/main/webapp" />
         <entry key="file://$PROJECT_DIR$/src/main/webapp/home.jsp" value="file://$PROJECT_DIR$/src/main/webapp" />
         <entry key="file://$PROJECT_DIR$/src/main/webapp/reservation.jsp" value="file://$PROJECT_DIR$/src/main/webapp" />

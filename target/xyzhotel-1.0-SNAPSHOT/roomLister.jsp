@@ -15,6 +15,8 @@
         width: 100%;
         max-width: 960px;
         margin: 50px auto;
+        border-color: #b4975a;
+        border: 2px;
     }
 
     .roomrow {
@@ -29,22 +31,22 @@
         height: auto;
         display: block;
         float: left;
-        background-color: #fff;
-        -webkit-box-shadow: 1px 1px 1px 1px #ccc;
-        -moz-box-shadow: 1px 1px 1px 1px #ccc;
-        box-shadow: 1px 1px 1px 1px #ccc;
+        background-color: #f3f6f4;
+        -webkit-box-shadow: 1px 1px 1px 1px #8a8f93;
+        -moz-box-shadow: 1px 1px 1px 1px #8a8f93;
+        box-shadow: 1px 1px 1px 1px #8a8f93;
     }
 
     .room_img {
         width: 40%;
         float: left;
-        max-height: 280px;
+        max-height: 285px;
         overflow: hidden;
     }
     .room_img img {
         height: 100%;
-        max-height: 280px;
-        opacity: 0.69;
+        max-height: 285px;
+
     }
 
     .room_information {
@@ -69,7 +71,7 @@
         font-size: 1.6rem;
     }
     .room_information .room_information--moreinfo-btn {
-        color: #ccc;
+        color: #464c50;
         text-transform: uppercase;
         text-decoration: none;
         font-size: 13px;
@@ -90,8 +92,8 @@
     .room_features {
         float: left;
         width: 100%;
-        border-top: 1px solid #e5e5e5;
-        color: #e5e5e5;
+        border-top: 1px solid #999999;
+        color: #999999;
     }
     .room_features ul {
         margin: 0;
@@ -118,14 +120,16 @@
         line-height: 60px;
         width: 60%;
         text-align: center;
-        color: #5fb2cf;
+        background-color:#b4975a ;
+        color: white;
+        border-color: #b4975a;
         text-decoration: none;
         text-transform: uppercase;
         font-size: 20px;
         font-size: 2rem;
     }
     .room_features .room_features--book-btn:hover {
-        font-size: 21.1px;
+        font-size: 23.1px;
         font-size: 2.11rem;
     }
 
@@ -162,7 +166,7 @@
         content: '';
         width: 12px;
         height: 12px;
-        background: #F87DA9;
+        background: #b4975a;
         position: absolute;
         top: 4px;
         left: 4px;
@@ -183,7 +187,7 @@
 
 </style>
 
-<%@ page import=" com.xyz.xyzhotel.Rooms,com.xyz.xyzhotel.AppDao,java.util.List,java.io.*,javax.servlet.ServletException,javax.servlet.http.*,javax.servlet.annotation.*,java.sql.*,java.util.List" %>
+<%@ page import=" com.xyz.xyzhotel.beans.Rooms,com.xyz.xyzhotel.functions.AppDao,java.util.List,java.io.*,javax.servlet.ServletException,javax.servlet.http.*,javax.servlet.annotation.*,java.sql.*,java.util.List" %>
 
 <%
 
@@ -195,66 +199,66 @@
             session.getAttribute("dateout").toString(),
             session.getAttribute("hotel").toString()
     );
-   if(rooms.size()!=0){
-    for (int i = 0; i < rooms.size(); i++)
-    {
+    if(rooms.size()!=0){
+        for (int i = 0; i < rooms.size(); i++)
+        {
 %>
 
 <form id="form1">
-<div class="roomcontainer">
-    <div class="roomrow">
-        <input type="hidden"  value="<%=rooms.get(i).getRoomId()%>" name="room_id">
-        <input type="hidden"  value="<%=rooms.get(i).getRoomName()%>" name="room_name">
-        <section class="room">
+    <div class="roomcontainer">
+        <div class="roomrow">
+            <input type="hidden"  value="<%=rooms.get(i).getRoomId()%>" name="room_id">
+            <input type="hidden"  value="<%=rooms.get(i).getRoomName()%>" name="room_name">
+            <section class="room">
 
-            <!-- Room Image -->
-            <div class="room_img">
-                <img src="https://theasiacollective.com/wp-content/uploads/2020/02/Mandarin-Oriental-Jumeira-2.jpg"/>
-            </div>
-            <!-- Room Information -->
-            <div class="room_information">
-                <h3 class="room_information--heading"><%=rooms.get(i).getRoomName()%></h3>
-                <p>1 king sized bed and style all the way to italy, floor-to-ceiling windows.  sleep 2 people, are 340 square feet, and are on floors 4-8</p>
-                <a  class="room_information--moreinfo-btn js-room_moreinfo_btn">+ more information</a>
-                <p>
-                    <input type="radio" id="<%=rooms.get(i).getRoomId()%>1" value="Breakfast only,<%=rooms.get(i).getbfPrice()%>" name="price_and_option" checked>
-                    <label for="<%=rooms.get(i).getRoomId()%>1">Breakfast only - <%=rooms.get(i).getbfPrice()%></label>
-                </p>
-                <p>
-                    <input type="radio" id="<%=rooms.get(i).getRoomId()%>2" value="Half board,<%=rooms.get(i).gethbPrice()%>" name="price_and_option">
-                    <label for="<%=rooms.get(i).getRoomId()%>2">Half board - <%=rooms.get(i).gethbPrice()%></label>
-                </p>
-                <p>
-                    <input type="radio" id="<%=rooms.get(i).getRoomId()%>3" value="Full board,<%=rooms.get(i).getfbPrice()%>" name="price_and_option">
-                    <label for="<%=rooms.get(i).getRoomId()%>3">Full borad - <%=rooms.get(i).getfbPrice()%></label>
-                </p>
-            </div>
-            <div  class="room_moreinfo" style="display: none;">
-                <p id="quote">
-                    Li Europan lingues es membres del sam familie. Lor separat existentie es un myth. Por scientie, musica, sport etc, litot Europa usa li sam vocabular. Li lingues differe solmen in li grammatica, li pronunciation e li plu commun vocabules. Omnicos directe al desirabilite de un nov lingua franca: On refusa continuar payar custosi traductores. At solmen va esser necessi far uniform grammatica, pronunciation e plu sommun paroles. Ma quande lingues coalesce, li grammatica del resultant lingue es plu simplic e regulari quam ti del coalescent lingues.
-                </p>
-
-                <p>
-                    Li nov lingua franca va esser plu simplic e regulari quam li existent Europan lingues. It va esser tam simplic quam Occidental in fact, it va esser Occidental. A un Angleso it va semblar un simplificat Angles, quam un skeptic Cambridge amico dit me que Occidental es.Li Europan lingues es membres del sam familie. Lor separat existentie es un myth. Por scientie, musica, sport etc, litot Europa usa li sam vocabular. Li lingues differe solmen in li grammatica, li pronunciation e li plu commun vocabules. Omnicos directe al desirabilite de un nov lingua franca: On refusa continuar payar custosi traductores. At solmen va esser necessi far uniform grammatica, pronunciation e plu sommun paroles.
-                </p>
-            </div> <!-- /Room more information section-->
+                <!-- Room Image -->
+                <div class="room_img">
+                    <img src="<%=rooms.get(i).getRoomImg()%>"/>
+                </div>
+                <!-- Room Information -->
+                <div class="room_information">
+                    <h3 class="room_information--heading"><%=rooms.get(i).getRoomName()%></h3>
+                    <p><%=rooms.get(i).getRoomInfo()%></p>
+                    <a  class="room_information--moreinfo-btn js-room_moreinfo_btn">+ more information</a>
+                    <br>
+                    <p>
+                        <input type="radio" id="<%=rooms.get(i).getRoomId()%>1" value="Breakfast only,<%=rooms.get(i).getbfPrice()%>" name="price_and_option" checked>
+                        <label for="<%=rooms.get(i).getRoomId()%>1"><%=rooms.get(i).getbfPrice()%> $ - Breakfast Only</label>
+                    </p>
+                    <p>
+                        <input type="radio" id="<%=rooms.get(i).getRoomId()%>2" value="Half board,<%=rooms.get(i).gethbPrice()%>" name="price_and_option">
+                        <label for="<%=rooms.get(i).getRoomId()%>2"><%=rooms.get(i).gethbPrice()%> $ - Half borad</label>
+                    </p>
+                    <p>
+                        <input type="radio" id="<%=rooms.get(i).getRoomId()%>3" value="Full board,<%=rooms.get(i).getfbPrice()%>" name="price_and_option">
+                        <label for="<%=rooms.get(i).getRoomId()%>3"> <%=rooms.get(i).getfbPrice()%> $ - Full borad</label>
+                    </p>
+                </div>
+                <div  class="room_moreinfo" style="display: none;">
+                    <p id="quote">
+                        <%=rooms.get(i).getRoommoreInfo()%>
+                    </p>
 
 
-            <div class="room_features">
-                <ul>
-                    <li><i class="fa fa-bath"></i>&nbsp;WC</li> <!-- Bath Icon -->
-                    <li><i class="fa fa-male"></i>1-<%=rooms.get(i).getMaxOccupants()%></li> <!-- People Icon -->
-                    <li><span class="room_features--price">170.-</span><small class="room_features--currency">CHF</small></li> <!-- Price -->
-                </ul>
+                </div> <!-- /Room more information section-->
 
 
-                <button type="submit"  id="bookroom"  name="bookroom" class="room_features--book-btn">Book Now</button>
+                <div class="room_features">
+                    <ul>
+                        <li><i class="fa fa-bath"></i>&nbsp;A/C</li>
+                        <li><i class="fa fa-male"></i> 1-<%=rooms.get(i).getMaxOccupants()%></li>
+                        <li> Wi-Fi</li>
 
-            </div>
+                    </ul>
 
-        </section>
+
+                    <button type="submit"  id="bookroom"  name="bookroom" class="room_features--book-btn">Book Now</button>
+
+                </div>
+
+            </section>
+        </div>
     </div>
-</div>
 </form>
 <%
     }}else{%>
@@ -274,9 +278,9 @@
 
 </style>
 <br><br><br>
-       <div class="nobooking-box">
-           <h3> Sorry, We can't find any availabilty.</h3>
-       </div>
+<div class="nobooking-box">
+    <h3> Sorry, no accommodation available for your search criteria.</h3>
+</div>
 <br><br><br><br><br>
 <%  }%>
 

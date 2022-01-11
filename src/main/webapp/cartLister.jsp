@@ -8,7 +8,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-
+    <title>Xyz Hotels Sri Lanka | Official Site</title>
 </head>
 <body>
 <ul class="list-group mb-3">

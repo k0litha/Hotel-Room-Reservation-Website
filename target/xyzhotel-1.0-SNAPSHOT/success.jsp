@@ -2,7 +2,7 @@
 <html lang="en" >
 <head>
   <meta charset="UTF-8">
-  <title>CodePen - HouseItt Payment</title>
+  <title>Payment Success | Heritage Hotels</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
   <style>
@@ -127,7 +127,7 @@
   .payment__container-btn {
     text-decoration: none;
     padding: 1rem 2.5rem;
-    background: #ff4568;
+    background: #54863F;
     color: #fff;
     font-size: 2.2rem;
     display: inline-block;
@@ -156,9 +156,9 @@
 <div class="payment__container">
   <h3 class="payment__container-heading">Payment Successful!</h3>
   <img class="payment__container-image" src="https://res.cloudinary.com/dmnazxdav/image/upload/v1599736321/tick_hhudfj.svg" alt="Payment SuccesFul"/>
-  <h3 class="payment__container-welcome">Thank you, we have recieved your reservation!</h3>
-  <p class="payment__container-text">We will send you a confiramtion email and a sms about your resevation details shortly.</p>
-  <a class="payment__container-btn">Find Opportunities</a>
+  <h3 class="payment__container-welcome">Thank you, we have received your reservation!</h3>
+  <p class="payment__container-text">We will send you a confirmation email and a sms about your reservation details shortly.</p>
+  <a href="home" class="payment__container-btn">Go to Home</a>
   
 </div>
 <!-- partial -->

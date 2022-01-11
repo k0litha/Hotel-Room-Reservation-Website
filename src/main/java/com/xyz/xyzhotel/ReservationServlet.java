@@ -21,13 +21,15 @@ public class ReservationServlet extends HttpServlet {
     }
 
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-        HttpSession session=request.getSession();
 
+        HttpSession session=request.getSession();
         if( session.getAttribute("hotel")==null){
             response.sendRedirect("home");
+            return;
 
         }else{
             request.getRequestDispatcher("/reservation.jsp").forward(request, response);
+            return;
         }
 
     }

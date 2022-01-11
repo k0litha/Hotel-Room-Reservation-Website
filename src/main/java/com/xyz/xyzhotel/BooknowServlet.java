@@ -27,6 +27,7 @@ public class BooknowServlet extends HttpServlet {
         session.setAttribute("children",request.getParameter("children") );
 
         response.sendRedirect("reservation");
+        return;
     }
 
     @Override

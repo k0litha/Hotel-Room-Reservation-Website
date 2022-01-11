@@ -1,9 +1,15 @@
 package com.xyz.xyzhotel;
 
+import com.xyz.xyzhotel.functions.AppDao;
+import com.xyz.xyzhotel.beans.Booking;
+import com.xyz.xyzhotel.functions.EmailSender;
+import com.xyz.xyzhotel.functions.SmsSender;
+
 import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 import java.io.IOException;
+import java.util.Date;
 import java.sql.SQLException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -31,6 +37,10 @@ public class SuccessPaymentServlet extends HttpServlet {
         String price_option = request.getParameter("price_option");
         String occupants = request.getParameter("occupants");
 
+        SimpleDateFormat date_id = new SimpleDateFormat("yyddMMHmmss");
+        Date date = new Date();
+        String booking_id = date_id.format(date);
+
         SimpleDateFormat sqlFormat = new SimpleDateFormat("yyyy-MM-dd");
         SimpleDateFormat userFormat = new SimpleDateFormat("dd/MM/yyyy");
         String check_in = null;
@@ -44,21 +54,6 @@ public class SuccessPaymentServlet extends HttpServlet {
         }
 
 
-        Booking book= new Booking(
-                hotel_location,
-                fname,
-                lname,
-                email,
-                phone,
-                address,
-                country,
-                zip,
-                room_id,
-                price,
-                price_option,
-                check_in,
-                check_out,
-                occupants);
 
 
         AppDao dao=new AppDao();
@@ -68,10 +63,27 @@ public class SuccessPaymentServlet extends HttpServlet {
         String subject= "sending success";
         String message= "sending success";
 
+
         try {
 
             sendmail.send(email,subject, message);
-           int rows= dao.insertBooking(book);
+           int rows= dao.insertBooking(
+                   hotel_location,
+                   fname,
+                   lname,
+                   email,
+                   phone,
+                   address,
+                   country,
+                   zip,
+                   room_id,
+                   price,
+                   price_option,
+                   check_in,
+                   check_out,
+                   occupants,
+                   booking_id
+           );
 
            if (rows>0){
 
@@ -84,9 +96,6 @@ public class SuccessPaymentServlet extends HttpServlet {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-
-
-
 
 
     }
